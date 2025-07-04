@@ -42,4 +42,4 @@ jobs:
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
             -Dsonar.sources=src/main/java \
             -Dsonar.java.binaries=target/classes \
-            org.sonarsource.scanner.maven:sonar-maven-plugin:5.1.0.4751
+            org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
