@@ -43,3 +43,4 @@ jobs:
           args: >
             -Dsonar.sources=src/main/java
             -Dsonar.java.binaries=target/classes
+            -Dsonar.projectKey=WebGoat
