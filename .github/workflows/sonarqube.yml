@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: Build and analyze
-    runs-on: runner-ubuntu-micro-spot-amd64
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
