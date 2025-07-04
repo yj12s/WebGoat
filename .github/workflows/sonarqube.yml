@@ -37,9 +37,10 @@ jobs:
       - name: SonarQube Scan
         run:  |
           mvn -B verify \
+            org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=WebGoat \
             -Dsonar.host.url=https://sonar-ee.curvc.com \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
             -Dsonar.sources=src/main/java \
-            -Dsonar.java.binaries=target/classes \
-            org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+            -Dsonar.java.binaries=target/classes
+
