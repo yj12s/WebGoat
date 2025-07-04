@@ -35,8 +35,9 @@ jobs:
         run: mvn -B clean package -Dmaven.test.skip=true -Dspotless.skip=true --no-transfer-progress
 
       - name: SonarQube Scan
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-              -Dsonar.projectKey=WebGoat \
-              -Dsonar.host.url=https://sonar-ee.curvc.com \
-              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-
+        run:  |
+          mvn -B verify \
+            -Dsonar.projectKey=WebGoat \
+            -Dsonar.host.url=https://sonar-ee.curvc.com \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
