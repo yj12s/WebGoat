@@ -35,12 +35,8 @@ jobs:
         run: mvn -B clean package -Dmaven.test.skip=true -Dspotless.skip=true --no-transfer-progress
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonar-ee.curvc.com
-        with:
-          args: >
-            -Dsonar.sources=src/main/java
-            -Dsonar.java.binaries=target/classes
-            -Dsonar.projectKey=WebGoat
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+              -Dsonar.projectKey=WebGoat \
+              -Dsonar.host.url=https://sonar-ee.curvc.com \
+              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
